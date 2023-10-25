@@ -13,6 +13,7 @@ Rails.application.routes.draw do
      get "/pilots", to: "pilots#index" 
      get "/pilots/:id", to: "pilots#show" 
      post "/pilots", to: "pilots#create" 
+     put "/pilots/:id", to: "pilots#update"
     end
   end
 end

@@ -29,6 +29,21 @@ class Api::V1::PilotsController < ApplicationController
       render json: { error: "Pilot not found!" }
     end
   end
+  def update
+    pilot = Pilot.find(params[:id])
+
+    if pilot 
+      pilot.update(
+        name: pilot_params[:name],
+        age: pilot_params[:age],
+        credits: pilot_params[:credits],
+        location_planet: pilot_params[:location_planet]
+      )
+      render json: "Pilot updated successfully"
+    else
+      render json: { error: "Pilot not found!" }
+    end
+  end
 
   private
     def pilot_params
